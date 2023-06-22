@@ -1,0 +1,51 @@
+// JavaScript Document// JavaScript Documentconst
+const quantityFoto = 25;
+const likes = {
+  MIN: 15,
+  MAX: 200
+};
+MIN1: 0,
+MAX2: 30
+};
+const numbersComments = {
+  MIN: 0,
+  MAX: 30
+  const quantityMessages = {
+};
+const description = ["Неожиданный ракурс", "Прекрасный свет", "Хорошее решение", "Хорошее настроение", "Мир прекрасен!"];
+const author = ["Карлсон", "Том Сойер", "Старик Хоттабыч", "Змей горынч", "Алёнушка", "Илья Муромец", "Баба Яга"];
+
+const message ="Всё отлично! В целом всё неплохо./Когда вы делаете фотографию, хорошо бы убирать палец из кадра./В конце концов это просто непрофессионально.Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше./Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше./Лица у людей на фотке перекошены, как будто их избивают./Как можно было поймать такой неудачный момент?!";
+
+//генерирование числа в итервале от min до max
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
+//генерирование неповторяющихся чисел в интервале от min до max
+const getRandomInteger = (min, max) => {
+  const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
+  const upper = Math.floor(Math.max(Math.abs(min), Math.abs(max)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+
+  return Math.floor(result);
+}
+
+createRandomIdFromRangeGenerator = (min, max) => {
+  const previousValues = [];
+
+  return function () {
+    let currentValue = getRandomInteger(min, max);
+    if (previousValues.length >= (max - min + 1)) {
+      console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
+      return null;
+    }
+    while (previousValues.includes(currentValue)) {
+      currentValue = getRandomInteger(min, max);
+    }
+    previousValues.push(currentValue);
+    return currentValue;
+  };
+}
+
+export {createRandomIdFromRangeGenerator};
+export {getRandomInteger}
+export {getRandomInt}

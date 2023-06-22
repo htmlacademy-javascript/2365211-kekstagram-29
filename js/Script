@@ -1,0 +1,40 @@
+import './datas.js';
+import {createRandomIdFromRangeGenerator};
+import {getRandomInteger};
+import {getRandomInt};
+export{appendFotos};
+export{Photos};
+
+
+//создаем из текста массив предложений
+const sentences = message.split('/');
+// Выбираем 1-2 предложения из текста
+var putComments = sentences[getRandomInt(0, sentences.length-1)];
+console.log(putComments);
+//id, число — идентификатор опубликованной фотографии.
+//Это число от 1 до 25. Идентификаторы не должны повторяться
+
+const photoIdGenerator = createRandomIdFromRangeGenerator(0, 500);
+
+//информационный массив
+let photos = [];
+let idPhoto = getRandomInt(0, quantityFoto.MAX);
+let idNumber = getRandomInt(0, 500);
+let authorName = author[getRandomInt(0, author.length-1)];
+ const appendFoto = (idPhoto) => ({
+id: idNumber,
+url: `photos/${photoIdGenerator()}.jpg`,
+description: description[getRandomInt(0, description.length-1)],
+likes: getRandomInt(likes.MIN, likes.MAX),
+comments: putComments,
+author: authorName,
+});
+
+const appendFotos = () => {
+
+	for (let i=1;i<=quantityFoto; i++){
+	photos.push(appendFoto(i))
+	}
+};
+
+
