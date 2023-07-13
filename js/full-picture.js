@@ -26,7 +26,7 @@ const fragment = document.createDocumentFragment();
     //commentListElement.append(fragment);
 
   });
-  commentListElement.append(fragment);
+commentListElement.append(fragment);
 };
 
 const hideBigPicture = () => {
