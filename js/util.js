@@ -7,23 +7,21 @@ const getRandomInteger = (a, b) => {
 
 const createRandomNumberFromRangeGenerator = (min, max) => {
   const previousValues = [];
-
   return function () {
     let currentValue = getRandomInteger(min, max);
-
     if (previousValues.length >= max - min + 1) {
       return null;
     }
-
     while (previousValues.includes(currentValue)) {
       currentValue = getRandomInteger(min, max);
     }
     previousValues.push(currentValue);
-
     return currentValue;
   };
 };
 
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-export {getRandomInteger, createRandomNumberFromRangeGenerator, getRandomArrayElement};
+const pressEscButton = (evt) => evt.key === 'Escape';
+
+export {getRandomInteger, createRandomNumberFromRangeGenerator, getRandomArrayElement, pressEscButton};
